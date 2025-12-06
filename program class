@@ -1,0 +1,100 @@
+class DaftarNilai:
+    def __init__(self):
+        self.data_nilai = {}
+
+    def _hitung_nilai_akhir(self, nilai_tugas, nilai_uts, nilai_uas):
+        nilai_akhir = (nilai_tugas * 0.30) + (nilai_uts * 0.35) + (nilai_uas * 0.35)
+        return round(nilai_akhir, 2)
+
+    def tambah(self, nama, nim, nilai_tugas, nilai_uts, nilai_uas):
+        if nama in self.data_nilai:
+            print(f"Data mahasiswa dengan nama '{nama}' sudah ada.")
+            return
+
+        nilai_akhir = self._hitung_nilai_akhir(nilai_tugas, nilai_uts, nilai_uas)
+        
+        self.data_nilai[nama] = {
+            "NIM": nim,
+            "Nilai Tugas": nilai_tugas,
+            "Nilai UTS": nilai_uts,
+            "Nilai UAS": nilai_uas,
+            "Nilai Akhir": nilai_akhir
+        }
+        print(f"Data nilai untuk '{nama}' berhasil ditambahkan.")
+
+    def tampilkan(self):
+        if not self.data_nilai:
+            print("Daftar nilai masih kosong.")
+            return
+
+        print("\n=== DAFTAR NILAI MAHASISWA ===")
+        print("{:<25} | {:<12} | {:<10} | {:<10} | {:<10} | {:<11}".format(
+            "Nama Mahasiswa", "NIM", "Tugas", "UTS", "UAS", "Nilai Akhir"
+        ))
+        print("-" * 85)
+        
+        for nama, data in self.data_nilai.items():
+            print("{:<25} | {:<12} | {:<10} | {:<10} | {:<10} | {:<11}".format(
+                nama, 
+                data['NIM'], 
+                data['Nilai Tugas'], 
+                data['Nilai UTS'], 
+                data['Nilai UAS'], 
+                data['Nilai Akhir']
+            ))
+        print("=====================================================================================\n")
+
+    def hapus(self, nama):
+        if nama in self.data_nilai:
+            del self.data_nilai[nama]
+            print(f"Data nilai untuk '{nama}' berhasil dihapus.")
+        else:
+            print(f"Data mahasiswa dengan nama '{nama}' tidak ditemukan.")
+
+    def ubah(self, nama, nim=None, nilai_tugas=None, nilai_uts=None, nilai_uas=None):
+        if nama not in self.data_nilai:
+            print(f"Data mahasiswa dengan nama '{nama}' tidak ditemukan.")
+            return
+        
+        data = self.data_nilai[nama]
+        
+        if nim is not None:
+            data['NIM'] = nim
+        if nilai_tugas is not None:
+            data['Nilai Tugas'] = nilai_tugas
+        if nilai_uts is not None:
+            data['Nilai UTS'] = nilai_uts
+        if nilai_uas is not None:
+            data['Nilai UAS'] = nilai_uas
+        
+        data['Nilai Akhir'] = self._hitung_nilai_akhir(
+            data['Nilai Tugas'], 
+            data['Nilai UTS'], 
+            data['Nilai UAS']
+        )
+        
+        print(f"Data nilai untuk '{nama}' berhasil diubah.")
+        self.data_nilai[nama] = data
+
+if __name__ == "__main__":
+    daftar_nilai = DaftarNilai()
+
+    # 1. Menambah data
+    daftar_nilai.tambah("Elika Manuela Damanik", "312510220", 80, 85, 90)
+    daftar_nilai.tambah("Fransisca Rianingtyas", "17102006", 90, 75, 80)
+    daftar_nilai.tambah("Dian Putri Assidiq", "12062007", 65, 70, 75)
+
+    # 2. Menampilkan data awal
+    daftar_nilai.tampilkan()
+
+    # 3. Mengubah data (Contoh: Mengubah nilai UTS Elika)
+    daftar_nilai.ubah("Elika Manuela Damanik", nilai_uts=95)
+
+    # 4. Menampilkan data setelah diubah
+    daftar_nilai.tampilkan()
+
+    # 5. Menghapus data (Contoh: Menghapus Fransisca)
+    daftar_nilai.hapus("Fransisca Rianingtyas")
+
+    # 6. Menampilkan data setelah dihapus
+    daftar_nilai.tampilkan()
