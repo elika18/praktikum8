@@ -1,6 +1,6 @@
 Diagram Class
 
-classDiagram
+```classDiagram
     class DaftarNilai {
         +data_nilai : Dictionary
         +__init__()
@@ -10,3 +10,4 @@ classDiagram
         +hapus(nama)
         +ubah(nama, nim, tugas, uts, uas)
     }
+```
