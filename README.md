@@ -55,6 +55,11 @@ Class `DaftarNilai` memiliki metode-metode berikut untuk menangani operasi CRUD:
 Pada blok `main`, program membuat *instance* dari class `DaftarNilai`, lalu mendemonstrasikan penambahan 3 data mahasiswa (Elika, Fransisca, Dian), menampilkan data tersebut, melakukan perubahan nilai pada salah satu mahasiswa, menghapus data mahasiswa lain, dan menampilkan hasil akhirnya untuk memverifikasi bahwa semua fungsi berjalan dengan baik.
 
 ### Hasil
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/894195f6-2be6-4f52-8531-3dc51135bb6c" />
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/ca061e4e-6cf1-4ee2-831b-2194d24e040d" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/71ec77ea-dfa2-4f03-955b-bf055b291d17" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/2ef5acee-875c-472e-92e1-296ab5a0052c" />
+
+### Flowchart
+<img width="888" height="1107" alt="image" src="https://github.com/user-attachments/assets/cff32806-bf8a-4ee3-bf33-5afda43d1eb3" />
+
+
 
