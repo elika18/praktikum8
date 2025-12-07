@@ -13,10 +13,6 @@ classDiagram
     }
 ```
 
-Berikut adalah **Penjelasan Program** yang disusun rapi, siap untuk Anda salin ke dalam file `README.md` pada bagian penjelasan.
-
----
-
 ### Penjelasan Program
 
 Program ini disusun menggunakan konsep **Pemrograman Berorientasi Objek (OOP)** untuk mensimulasikan sistem pengelolaan data nilai mahasiswa. Seluruh logika dan penyimpanan data dibungkus (encapsulation) ke dalam sebuah *class* bernama `DaftarNilai`.
