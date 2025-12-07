@@ -1,6 +1,7 @@
-Diagram Class
+## Diagram Class
 
-```classDiagram
+```mermaid
+classDiagram
     class DaftarNilai {
         +data_nilai : Dictionary
         +__init__()
